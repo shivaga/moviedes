@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "529028080686",
+    "project_id": "loginandsignup-af96a",
+    "storage_bucket": "loginandsignup-af96a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529028080686:android:e4b8e8de3c3cd3f6da6bbf",
+        "android_client_info": {
+          "package_name": "com.example.loginandsignup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529028080686-kdvm9bdp0knmfsbmda8kdj4tdivj75tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArsZ9v9zmV_wg4arWMokUSspGoZJ3lTTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529028080686-kdvm9bdp0knmfsbmda8kdj4tdivj75tg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
