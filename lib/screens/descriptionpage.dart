@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loginandsignup/descriptionpage.dart';
+import 'package:loginandsignup/screens/descriptionpage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class descriptionpage extends StatefulWidget {
   final String title1;
@@ -20,11 +21,23 @@ class _descriptionpageState extends State<descriptionpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:Text(widget.title1),
-      ),
+        backgroundColor: Color.fromRGBO(21, 20, 20, 1.0),
       body: Column(
         children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(10, 30, 0, 0),
+            child:Row(
+              children: [
+                IconButton(onPressed: (){
+                  Navigator.of(context).pop();
+                }, icon: Icon(Icons.arrow_back_ios_new_sharp,color:Colors.white)),
+                Container(
+                  margin: EdgeInsets.fromLTRB(85, 0, 0, 0),
+                  child:Text("MoviePie",style: TextStyle(color: Colors.grey[400],fontSize: 27),)
+                )
+              ],
+            ),
+          ),
           Container(
             child: Image(
               image: NetworkImage(baseurl+widget.image1),
@@ -39,8 +52,8 @@ class _descriptionpageState extends State<descriptionpage> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: ListTile(
-                title:Text('Release Date'),
-                subtitle: Text(widget.releasedate1),
+                title:Text('Release Date',style: TextStyle(color: Colors.grey,fontStyle: FontStyle.italic),),
+                subtitle: Text(widget.releasedate1,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
               ),
             ),
           ),
@@ -48,8 +61,8 @@ class _descriptionpageState extends State<descriptionpage> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: ListTile(
-                title:Text('Overview'),
-                subtitle: Text(widget.overview1),
+                title:Text('Overview',style: TextStyle(color: Colors.grey,fontStyle: FontStyle.italic),),
+                subtitle: Text(widget.overview1,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,letterSpacing: 1.5)),
               ),
             ),
           )
