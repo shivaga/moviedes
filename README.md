@@ -1,16 +1,22 @@
-# loginandsignup
+# MoviePie
+A app created to see current top rated movies with some description using tmdb api.For login and signup 
+i use Firebase with google as well as email authentication
 
-A new Flutter project.
+# Planned Updateds
+For Future i am planning to add search bar with complete functionality and some better design with cool
+animations.Finally some other info for all entertainment shows
 
-## Getting Started
+#Tech Stack
+* Flutter
+* Firebase
+* Figma
 
-This project is a starting point for a Flutter application.
+#User-Interface
+[Click here to open figma file](https://www.figma.com/file/pFrthFfSepFraEu2aWy35o/MoviePie?t=xu4oYZNKErWXcCaG-1)
 
-A few resources to get you started if this is your first Flutter project:
+#Apk-Drive-link
+[Click here to download apk](https://drive.google.com/file/d/1wok174OqFaKrKBVQ4rvfqaK8xQeyocA0/view?usp=share_link)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##Installation
+Download the apk from the link above in your android device and click install.
+The app will be installed in the mobile.
