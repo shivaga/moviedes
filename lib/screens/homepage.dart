@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http ;
 import 'package:flutter/material.dart';
 import 'package:loginandsignup/screens/descriptionpage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loginandsignup/screens/search_movie.dart';
 import '../components/apicalls.dart';
 import 'package:loginandsignup/screens/login.dart';
 import 'package:loginandsignup/components/google_sign_in.dart';
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
   List? listResponse ;
   List? listResponse1;
   List? listResponse2;
+  List? listResponse3;
   late Timer timer;
   var search=TextEditingController();
   Future popular_movie() async {
@@ -63,7 +65,6 @@ class _HomeState extends State<Home> {
     else{
       listResponse2=null;
     }
-
   }
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -248,7 +249,9 @@ class _HomeState extends State<Home> {
                     ),
                     Container(
                       child: IconButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>search_movie(search.text.toString())));
+                        },
                         icon: Icon(Icons.search_outlined,color: Colors.white,size: 27.sp),
                       ),
                     ),
@@ -286,7 +289,11 @@ class _HomeState extends State<Home> {
                                 borderRadius: BorderRadius.circular(20),
                                 child:InkWell(
                                   onTap: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>descriptionpage(listResponse![index]['original_title'],listResponse![index]['poster_path'],listResponse![index]['overview'],listResponse![index]['release_date'])));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                                        descriptionpage(listResponse![index]['original_title'],
+                                            listResponse![index]['poster_path'],
+                                            listResponse![index]['overview'],
+                                            listResponse![index]['release_date'])));
                                   },
                                   child: Image(
                                     image: NetworkImage(imageurl()+listResponse![index]['poster_path'].toString()),
