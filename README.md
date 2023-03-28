@@ -1,9 +1,9 @@
 # MoviePie
 A app created to see current top rated movies with some description using tmdb api.For login and signup 
-i use Firebase with google as well as email authentication
+i use Firebase with google as well as email authentication.People can see search their top movies using search tmdb api.
 
 # Planned Updateds
-For Future i am planning to add search bar with complete functionality and some better design with cool
+For Future i am planning to displaying data related to other entertainment medium like tv shows and some better design with cool
 animations.Finally some other info for all entertainment shows
 
 # Tech Stack
