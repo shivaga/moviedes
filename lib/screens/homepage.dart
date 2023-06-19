@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:loginandsignup/screens/descriptionpage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loginandsignup/screens/search_movie.dart';
+import 'package:loginandsignup/screens/signup.dart';
 import '../components/apicalls.dart';
 import 'package:loginandsignup/screens/login.dart';
 import 'package:loginandsignup/components/google_sign_in.dart';
@@ -67,13 +68,6 @@ class _HomeState extends State<Home> {
     }
   }
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final FirebaseAuth auth = FirebaseAuth.instance;
-  //signout function
-  signOut() async {
-    await auth.signOut();
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => login()));
-  }
 
   @override
   void initState() {
@@ -176,8 +170,9 @@ class _HomeState extends State<Home> {
               child:Row(
                 children: [
                   Icon(Icons.logout,color: Colors.white,size: 25.sp),
-                  TextButton(onPressed: (){
-                    signOut();
+                  TextButton(onPressed: ()async{
+                    await Authentication.signOut(context: context);
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>signup()));
                   }, child: Text("Logout",style: TextStyle(color: Color.fromRGBO(
                       158, 158, 158, 1.0),fontSize: 25.sp),))
                 ],
@@ -237,9 +232,11 @@ class _HomeState extends State<Home> {
                       ),
                       child:TextField(
                         controller: search,
+
                         //obscureText: true,
                         style:TextStyle(fontWeight: FontWeight.normal),
                         decoration: InputDecoration(
+
                           // border:OutlineInputBorder(
                           //   borderRadius: BorderRadius.circular(15),
                           // ),

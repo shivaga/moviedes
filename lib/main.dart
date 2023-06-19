@@ -1,13 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:loginandsignup/components/google_sign_in.dart';
-import 'package:loginandsignup/screens/login.dart';
 import 'package:loginandsignup/screens/splashscreen.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:loginandsignup/components/google_sign_in.dart';
-import 'package:provider/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -26,6 +21,7 @@ class _MainpageState extends State<Mainpage> {
     return ScreenUtilInit(
       minTextAdapt: true,
       designSize: const Size(384.0, 811.2),
+      useInheritedMediaQuery: true,
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,

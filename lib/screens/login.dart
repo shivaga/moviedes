@@ -5,8 +5,6 @@ import 'package:loginandsignup/components/google_sign_in.dart';
 import 'package:loginandsignup/screens/homepage.dart';
 import 'package:loginandsignup/screens/signup.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-
 import '../popup/forgotpassword.dart';
 import '../popup/showpopup.dart';
 
@@ -35,11 +33,14 @@ class _loginState extends State<login> {
   final GoogleSignIn googleSignIn=GoogleSignIn();
   var email=TextEditingController();
   var password=TextEditingController();
+  FocusNode fieldone=FocusNode();
+  FocusNode fieldtwo=FocusNode();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(21, 20, 20, 1.0),
       body:SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
             children: [
               Container(
@@ -87,7 +88,11 @@ class _loginState extends State<login> {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 margin: EdgeInsets.fromLTRB(0, 0, 0, 30.h),
-                child:TextField(
+                child:TextFormField(
+                  focusNode: fieldone,
+                  onFieldSubmitted: (value){
+                    FocusScope.of(context).requestFocus(fieldtwo);
+                  },
                   controller: email,
                   style:TextStyle(fontWeight: FontWeight.normal),
                   decoration: InputDecoration(
@@ -107,6 +112,7 @@ class _loginState extends State<login> {
                 margin: EdgeInsets.fromLTRB(0, 0, 0, 7.h),
                 child:TextField(
                   controller: password,
+                  focusNode: fieldtwo,
                   obscureText: true,
                   style:TextStyle(fontWeight: FontWeight.normal),
                   decoration: InputDecoration(
@@ -211,9 +217,16 @@ class _loginState extends State<login> {
                   ),
                   child:Text('Continue with Google'),
                   onPressed: ()async{
-                    await FirebaseServices().signInWithGoogle();
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Home()));
+                    User? result=await Authentication.signInWithGoogle(context:context);
+                    if(result==null){
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(const SnackBar(content: Text(
+                          "Error occurred using Google Sign In. Try again.")));
+                    }
+                    else {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    }
                   },
                 ),
               ),
