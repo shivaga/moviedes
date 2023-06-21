@@ -15,7 +15,7 @@ animations.Finally some other info for all entertainment shows
 [Click here to open figma file](https://www.figma.com/file/pFrthFfSepFraEu2aWy35o/MoviePie?t=xu4oYZNKErWXcCaG-1)
 
 # Apk-Drive-link
-[Click here to download apk](https://drive.google.com/file/d/1wok174OqFaKrKBVQ4rvfqaK8xQeyocA0/view?usp=share_link)
+[Click here to download apk](https://drive.google.com/file/d/1aCjtH3VkIjTIzmu0EL5zjqck2xFXaAUR/view?usp=sharing)
 
 ## Installation
 Download the apk from the link above in your android device and click install.
